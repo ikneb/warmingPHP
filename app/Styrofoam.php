@@ -30,7 +30,6 @@ class Styrofoam implements CalcMaterial
                 $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_10_35'");
             }
         }
-        var_dump($price);
         $q=(int)$quad;
         $p=(int)$price['price'];
         $result =$q*$p;

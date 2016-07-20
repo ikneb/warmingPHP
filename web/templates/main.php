@@ -93,10 +93,9 @@
 
             <div class="form-group row">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" onclick="calcPrice()" class="btn btn-default">Посчитать</button>
+                    <button type="submit" class="btn btn-default">Посчитать</button>
                 </div>
             </div>
-
 
         </form>
             </div>
