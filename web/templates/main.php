@@ -93,7 +93,7 @@
 
             <div class="form-group row">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Посчитать</button>
+                    <button type="submit"  class="btn btn-default">Посчитать</button>
                 </div>
             </div>
 
@@ -169,6 +169,19 @@
         </div>
     </div>
 </section>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Заголовок окна</h4>
+            </div>
+            <div class="modal-body">Текст уведомления</div>
+            <div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+        </div>
+    </div>
+</div>
+
 
 
 <?php require ('footer.php')?>

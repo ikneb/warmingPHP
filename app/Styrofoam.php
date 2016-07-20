@@ -19,15 +19,18 @@ class Styrofoam implements CalcMaterial
         if($thick == 5) {
             if($density == 25) {
                 $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_5_25'")->fetch_assoc();
-                if(!$price) die('No such entry');
+                if(!$price) die('No such price list');
             }else{
-                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_5_35'");
+                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_5_35'")->fetch_assoc();
+                if(!$price) die('No such price list');
             }
         }else {
             if($density == 25) {
-                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_10_25'");
+                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_10_25'")->fetch_assoc();
+                if(!$price) die('No such price list');
             }else {
-                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_10_35'");
+                $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='styrofoam_10_35'")->fetch_assoc();
+                if(!$price) die('No such price list');
             }
         }
         $q=(int)$quad;

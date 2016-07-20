@@ -1,4 +1,13 @@
-.measurement{
-    background:url(images/m.jpg) no-repeat center;
+
+
+#result-calc{
+    padding-top: 240px;
+
+    background:url(images/bg_header.jpg);
+    background-color: #c7b39b;
     background-size:100%;
+
+}
+.center{
+    text-align: center;
 }
