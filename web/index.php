@@ -16,8 +16,8 @@ $act = isset ($_GET['act']) ? $_GET['act'] : 'main';
 define('IS_ADMIN', isset($_SESSION['IS_ADMIN'] ));
 
 $styrofoam = new \liw\app\Styrofoam();
-$expanded_polystyrene = new \liw\app\ExpandedPolystyrene\ExpandedPolystyrene();
-$mineral_wool = new \liw\app\MineralWool\MineralWool();
+$expanded_polystyrene = new \liw\app\ExpandedPolystyrene();
+$mineral_wool = new \liw\app\MineralWool();
 
 switch ($act) {
     case 'main':

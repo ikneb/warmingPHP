@@ -6,9 +6,9 @@
  * Date: 20.07.16
  * Time: 13:56
  */
-namespace liw\app\ExpandedPolystyrene;
+namespace liw\app;
 
-use liw\app\CalcMaterial;
+use liw\app\Calc;
 
 class ExpandedPolystyrene implements CalcMaterial
 {

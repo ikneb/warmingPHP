@@ -9,13 +9,14 @@
 namespace liw\app;
 
 use mysqli;
+require '../app/app_config.php';
 
 class MYSQL
 {
     public function connection_bd()
     {
-        $mysqli = new mysqli('localhost','root','') or die('Cannot connect to database');
-        $mysqli->select_db('warming_bd') or die('Cannot select to database');
+        $mysqli = new mysqli(DATABASE_HOSTNAME,DATABASE_USERNAME,DATABASE_PASSWORD) or die('Cannot connect to database');
+        $mysqli->select_db(DATABASE_NAME) or die('Cannot select to database');
         $mysqli->set_charset('utf8');
 
         return $mysqli;

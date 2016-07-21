@@ -6,7 +6,7 @@
  * Time: 13:58
  */
 
-namespace liw\app\MineralWool;
+namespace liw\app;
 
 
 use liw\app\CalcMaterial;
