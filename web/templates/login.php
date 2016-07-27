@@ -24,38 +24,18 @@
                         <h3 class="thin text-center">Пароль пожалуйста</h3>
                         <!--<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signup.html">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>-->
                         <hr>
-                        <!--Modal-->
-                        <div id="myModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
-
-                                    </div>
-                                    <div class="modal-body">Вы ввели не правильный пароль</div>
-                                    <div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <form>
-                            <!--<div class="top-margin">
-                                <label>Username/Email <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control">
-                            </div>-->
+                        <form action="?act=log_input" method="POST">
                             <div class="top-margin">
                                 <label>Пароль<span class="text-danger" >*</span></label>
                                 <input type="password" class="form-control" name="password" id="password">
                             </div>
-
                             <hr>
-
                             <div class="row">
                                 <div class="col-lg-8">
                                     <b><a href="">Забыл пароль?</a></b>
                                 </div>
                                 <div class="col-lg-4 text-right">
-                                    <button type="button" onclick="passwordClic()" class="btn btn-default">Войти</button>
+                                    <button type="submit" class="btn btn-default">Войти</button>
                                 </div>
                             </div>
                         </form>

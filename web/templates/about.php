@@ -1,24 +1,15 @@
 <?php require ('header.php')?>
-
 <header id="head" class="secondary"></header>
-
 <!-- container -->
 <div class="container">
-
-    <ol class="breadcrumb">
-        <li><a href="index.html">Главная</a></li>
-        <!--<li class="active">About</li>-->
-    </ol>
-
     <div class="row">
-
         <!-- Article main content -->
         <article class="col-sm-8 maincontent">
             <header class="page-header">
                 <h1 class="page-title">О нас</h1>
             </header>
             <h3>Технология.</h3>
-            <p><img src="assets/images/003.jpg" alt="" class="img-rounded pull-right" width="300" >  1     – строительное основание; 2 – раствор клеевой смеси; 3 – плита утеплителя; 4 – дюбель     с сердечником; 5 – базовый защитный слой из специальной шпаклевки; 6 – сетка из             стекловолокна; 7 – фасадная краска.
+            <p><img src="web/assets/images/003.jpg" alt="" class="img-rounded pull-right" width="300" >  1     – строительное основание; 2 – раствор клеевой смеси; 3 – плита утеплителя; 4 – дюбель     с сердечником; 5 – базовый защитный слой из специальной шпаклевки; 6 – сетка из             стекловолокна; 7 – фасадная краска.
 
                 Утепление стен начинается с осмотра фасада, его состояния. Иногда приходится убирать старые слоя штукатурки, сбивать плитку или демонтировать лишние конструкции, эти и другие случае скорее частные, нежели общие, поэтому мы их упустим и начнем с главного.  </p>
 

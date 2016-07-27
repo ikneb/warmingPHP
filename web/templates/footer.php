@@ -1,6 +1,18 @@
 
-<footer id="footer" class="top-space">
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="modal-head"></h4>
+            </div>
+            <div class="modal-body center" id="modal-body"></div>
+            <div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+        </div>
+    </div>
+</div>
 
+
+<footer id="footer" class="top-space">
     <div class="footer1">
         <div class="container">
             <div class="row">
@@ -47,11 +59,10 @@
                 <div class="col-md-6 widget">
                     <div class="widget-body">
                         <p class="simplenav">
-                            <a href="#">Главная</a> |
-                            <a href="about.html">О нас</a> |
-                            <a href="sidebar-right.html">Галерея</a> |
-                            <a href="contact.html">Контакты</a> |
-                            <b><a href="signup.html">Администрирование</a></b>
+                            <a href="?act=main">Главная</a> |
+                            <a href="?act=about">О нас</a> |
+                            <a href="?act=gallery">Галерея</a> |
+                            <a href="?act=contact">Контакты</a> |
                         </p>
                     </div>
                 </div>
@@ -68,17 +79,17 @@
 </footer>
 <!--modal result calcul-->
 
-<script src="assets/js/jquery-1.12.3.js"></script>
-<script src="assets/js/html5shiv.js"></script>
-<script src="assets/js/respond.min.js"></script>
-<script type="text/javascript" src="assets/js/matherial.js"></script>
+<script src="web/assets/js/jquery-1.12.3.js"></script>
+<script src="web/assets/js/html5shiv.js"></script>
+<script src="web/assets/js/respond.min.js"></script>
+<script type="text/javascript" src="web/assets/js/matherial.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="assets/js/headroom.min.js"></script>
-<script src="assets/js/jQuery.headroom.min.js"></script>
-<script src="assets/js/template.js"></script>
+<script src="web/assets/js/headroom.min.js"></script>
+<script src="web/assets/js/jQuery.headroom.min.js"></script>
+<script src="web/assets/js/template.js"></script>
 </body>
 </html>

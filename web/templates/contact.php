@@ -5,10 +5,6 @@
 <!-- container -->
 <div class="container">
 
-    <ol class="breadcrumb">
-        <li><a href="index.html">Главная</a></li>
-        <li class="active"></li>
-    </ol>
 
     <div class="row">
 
@@ -22,7 +18,7 @@
                 Мы хотели бы услышать от, Вас, заинтересованы ли вы в совместной работе? Заполните форму ниже с некоторой информацией о вашем утеплении, и я позвоню, а если нужно то и приеду, как только смогу.
             <h3>Для отправки сообщения заполните все поля</h3>
             <br>
-            <form>
+            <form action="?act=message" method="POST">
                 <div class="row">
                     <div class="col-sm-4">
                         <input required type="text" class="form-control" id="name" placeholder="Василий" name="name">
@@ -37,7 +33,7 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-12">
-                        <textarea placeholder="Напишите, Ваше, пожелание здесь ..." class="form-control" rows="9" id="sms"  name="sms"></textarea>
+                        <textarea placeholder="Напишите, Ваше, пожелание здесь ..." class="form-control" rows="9" id="sms"  name="text"></textarea>
                     </div>
                 </div>
                 <br>
@@ -46,37 +42,28 @@
                         <label class="checkbox"><input type="checkbox"> Подписаться на рассылку</label>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <button type="button" onclick="smska()" class="btn btn-default">Отправить сообщение</button>
+                        <button type="submit" class="btn btn-default">Отправить сообщение</button>
                     </div>
                 </div>
             </form>
 
         </article>
-        <!-- /Article -->
 
-        <!-- Sidebar -->
-        <aside class="col-sm-3 sidebar sidebar-right">
+       <aside class="col-sm-3 sidebar sidebar-right">
 
-            <div class="widget">
-                <h4>Адрес</h4>
-                <address>
-                    Украина г.Харьков
-                </address>
-                <h4>Номер:</h4>
+                    <div class="widget">
+                        <h4>Адрес</h4>
+                        <address>
+                            Украина г.Харьков
+                        </address>
+                        <h4>Номер:</h4>
                 <address>
                     (099) 522-26-55
                 </address>
             </div>
-
         </aside>
-        <!-- /Sidebar -->
-
     </div>
-</div>	<!-- /container -->
-
-<section class="container-full top-space">
-    <div id="map"></div>
-</section>
+</div>
 
 
 <?php require ('footer.php')?>

@@ -11,7 +11,7 @@ interface CalcMaterial
 {
     const QUAD_LIST_EP = 0.72;
 
-    public function price( $quad, $thick, $density, $mysqli);
+    public function price();
     public function the_number();
 
 

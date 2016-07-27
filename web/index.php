@@ -10,17 +10,12 @@ $mysqli= $objMySQL -> connection_bd();
 
 mb_internal_encoding('UTF-8');
 
+$act = isset ($_GET['act']) ? $_GET['act'] : 'main';
 
-$act = isset ($_GET['act']) ? $_GET['act'] : 'admin';
+if(isset($_GET['page']))$act = 'admin';
+else if(isset($_GET['page_sms']))$act ='admin_sms';
 
 define('IS_ADMIN', isset($_SESSION['IS_ADMIN'] ));
-
-$styrofoam = new \liw\app\Styrofoam();
-$expanded_polystyrene = new \liw\app\ExpandedPolystyrene();
-$mineral_wool = new \liw\app\MineralWool();
-$customer = new \liw\app\Customer();
-$message = new \liw\app\Message();
-$password = new \liw\app\Password();
 
 switch ($act) {
     case 'main':
@@ -31,41 +26,46 @@ switch ($act) {
         switch ($_POST['material']){
             case  'styrofoam':
                 //calculate price warming for styrofoam quadrature
-                $price = $styrofoam->price($_POST['quad'],$_POST['thick'],$_POST['density'],$mysqli);
+                $styrofoam = new \liw\app\Styrofoam($mysqli);
+                $price = $styrofoam->price();
                 echo $price;
                 break;
             case 'expanded_polystyrene':
                 //calculate price warming for expanded_polystyrene quadrature
-                $price = $expanded_polystyrene->price($_POST['quad'],$_POST['thick'],$_POST['density'], $mysqli);
+                $expanded_polystyrene = new \liw\app\ExpandedPolystyrene($mysqli);
+                $price = $expanded_polystyrene->price();
                 echo $price;
                 break;
             case 'mineral_wool':
                 //calculate price warming for mineral_wool quadrature
-                $price = $mineral_wool->price($_POST['quad'],$_POST['thick'],$_POST['density'], $mysqli);
+                $mineral_wool = new \liw\app\MineralWool($mysqli);
+                $price = $mineral_wool->price();
                 echo $price;
                 break;
         }
         //insert customer
-        $customer->add_customer($_POST['name'], $_POST['number'], $_POST['quad'], $_POST['thick'], $_POST['density'],
-            $_POST['material'], $price, $mysqli);
+        $customer = new \liw\app\Customer($mysqli);
+        $customer->add_customer($price);
        break;
     case 'message':
-        $message->add_message($_POST['name'],$_POST['email'],$_POST['number'],$_POST['text'],$mysqli);
+        $message = new \liw\app\Message($mysqli);
+        $message->add_message();
         require('templates/message.php');
         break;
 
     case 'log_input':
-        if($_POST['password']==$password->get_password($mysqli)){
+        $password = new \liw\app\Password($mysqli);
+        if($_POST['password']==$password->get_password()){
             $_SESSION['IS_ADMIN'] = true;
             header('Location: ?act=admin');
-
         }else{
-        require('templates/notlogin.php');
+        require ('templates/notlogin.php');
         }
         break;
 
     case 'change_password':
-        $password->edit_password($_POST['password'], $mysqli);
+        $password = new \liw\app\Password($mysqli);
+        $password->edit_password();
         print_r($_POST['password']);
         break;
 
@@ -91,55 +91,27 @@ switch ($act) {
         break;
 
     case 'admin':
-        if(!IS_ADMIN) die ("You must be admin to add entry");
-        $page = isset($_GET['page']) ? max(1,intval($_GET['page'])):1;
-            $limit = 10;
-            $records = array();
-            $page_result = $mysqli->query("SELECT COUNT(*) AS cust FROM customer")->fetch_assoc();
-            $customers = $page_result['cust'];
-            $offset = $customers - ($limit*$page) ;
-            $pages = $customers/$limit+1;
-            if(($limit*$page)>$customers){
-                $offset=0;
-                $limit = $customers%$limit;
-        }
-        $sel = $mysqli->query("SELECT * FROM  customer
-        WHERE id ORDER BY id LIMIT $offset, $limit");
-        while ($row = $sel->fetch_assoc()){
-            $records[]=$row;
-        }
+        $customer = new \liw\app\Customer($mysqli);
+        $records=$customer->get_all_customer();
         require('templates/admin.php');
         break;
     case 'admin_sms':
-        if(!IS_ADMIN) die ("You must be admin to add entry");
-        $page = isset($_GET['page']) ? max(1,intval($_GET['page'])):1;
-        $limit = 10;
-        $records = array();
-        $page_result = $mysqli->query("SELECT COUNT(*) AS sms FROM sms")->fetch_assoc();
-        $messages = $page_result['sms'];
-        $offset = $customers - ($limit*$page) ;
-        $pages = $messages/$limit+1;
-        if(($limit*$page)>$messages){
-            $offset=0;
-            $limit = $messages%$limit;
-        }
-        $sel = $mysqli->query("SELECT * FROM  sms
-        WHERE id ORDER BY id LIMIT $offset, $limit");
-        while ($row = $sel->fetch_assoc()){
-            $records[]=$row;
-        }
+        $message = new \liw\app\Message($mysqli);
+        $records=$message->get_all_message();
         require('templates/admin.php');
         break;
     case 'delete-customer':
         if(!IS_ADMIN) die ("You must be admin to add entry");
         $id = intval($_GET['id']);
-        $customer->delete_customer($mysqli,$id);
+        $customer = new \liw\app\Customer($mysqli);
+        $customer->delete_customer($id);
         header('Location: ?act=admin');
         break;
     case 'delete-sms':
         if(!IS_ADMIN) die ("You must be admin to add entry");
         $id = intval($_GET['id']);
-        $message->delete_sms($mysqli,$id);
+        $message = new \liw\app\Message($mysqli);
+        $message->delete_sms($id);
         header('Location: ?act=admin_sms');
         break;
 

@@ -8,24 +8,26 @@
  */
 namespace liw\app;
 
-use liw\app\Calc;
+use liw\app\CalcMaterial;
 
 class ExpandedPolystyrene implements CalcMaterial
 {
-
-    public function price($quad, $thick, $density=0, $mysqli)
+    private $mysqli;
+    public function __construct($mysqli)
     {
-        if($thick == 3) {
-            $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='expanded_polystyrene_3'")->fetch_assoc();
+        $this->mysqli = $mysqli;
+    }
+
+    public function price()
+    {
+        if($_POST['thick'] == 3) {
+            $price = $this->mysqli->query("SELECT*FROM price_list_bd WHERE name='expanded_polystyrene_3'")->fetch_assoc();
             if(!$price) die('No such price list');
         }else{
-            $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='expanded_polystyrene_5'")->fetch_assoc();
+            $price = $this->mysqli->query("SELECT*FROM price_list_bd WHERE name='expanded_polystyrene_5'")->fetch_assoc();
             if(!$price) die('No such price list');
         }
-        $q=(int)$quad;
-        $p=(int)$price['price'];
-        $result =$q*$p;
-
+        $result = (intval($_POST['quad'])) * (intval($price['price']));
         return $result;
     }
 

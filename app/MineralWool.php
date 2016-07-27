@@ -13,17 +13,22 @@ use liw\app\CalcMaterial;
 
 class MineralWool implements CalcMaterial
 {
-
-    public function price( $quad, $thick, $density=0, $mysqli)
+    private $mysqli;
+    public function __construct($mysqli)
     {
-        if($thick == 5) {
-            $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='mineral_wool_5'")->fetch_assoc();
+        $this->mysqli = $mysqli;
+    }
+
+    public function price()
+    {
+        if($_POST['thick'] == 5) {
+            $price = $this->mysqli->query("SELECT*FROM price_list_bd WHERE name='mineral_wool_5'")->fetch_assoc();
             if(!$price) die('No such price list');
         }else{
-            $price = $mysqli->query("SELECT*FROM price_list_bd WHERE name='mineral_wool_10'")->fetch_assoc();
+            $price = $this->mysqli->query("SELECT*FROM price_list_bd WHERE name='mineral_wool_10'")->fetch_assoc();
             if(!$price) die('No such price list');
         }
-        $q=(int)$quad;
+        $q=(int)$_POST['quad'];
         $p=(int)$price['price'];
         $result =$q*$p;
 

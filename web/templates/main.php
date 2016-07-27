@@ -28,10 +28,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
 
-
-
-        <form action="?act=calc" method="POST">
-
+        <form>
             <div class="form-group">
                 <label for="name">Ваше имя</label>
                 <input required type="text" class="form-control" id="name" placeholder="Василий" name="name" >
@@ -71,40 +68,36 @@
                 <div class="col-sm-10" >
                     <div class="radio">
                         <label>
-                            <input type="radio" name="material" id="gridRadios1" value="styrofoam" checked >
+                            <input type="radio" name="gridRadios" id="gridRadios" value="styrofoam" checked >
                             Пенопласт
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="material" id="gridRadios2" value="expanded_polystyrene">
+                            <input type="radio" name="gridRadios" id="gridRadios" value="expanded_polystyrene">
                             Пенополистирол
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="material" id="gridRadios3" value="mineral_wool">
+                            <input type="radio" name="gridRadios" id="gridRadios" value="mineral_wool">
                             Минеральная вата
                         </label>
                     </div>
 
                 </div>
             </div>
-
             <div class="form-group row">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit"  class="btn btn-default">Посчитать</button>
+                    <button type="button" id="send_form" class="btn btn-default">Посчитать</button>
                 </div>
             </div>
-
         </form>
             </div>
             <div class="col-sm-12 col-lg-6 col-md-6">
-                <img src="assets/images/m.jpg">
+                <img src="web/assets/images/m.jpg">
             </div>
         </div>
-
-
     </div>
 </div>
 <!-- /Highlights -->
@@ -169,18 +162,6 @@
         </div>
     </div>
 </section>
-
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
-                <h4 class="modal-title">Заголовок окна</h4>
-            </div>
-            <div class="modal-body">Текст уведомления</div>
-            <div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
-        </div>
-    </div>
-</div>
 
 
 
